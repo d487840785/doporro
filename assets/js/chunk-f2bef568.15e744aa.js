@@ -1,1 +1,631 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-f2bef568","chunk-8087eca4","chunk-650d1510"],{"10d9":function(t,e,s){"use strict";var i=function(){var t=this,e=t._self._c;return e("section",{staticClass:"full-screen-banner"},[e("img",{staticClass:"full-screen-banner__bg",attrs:{src:t.banner,alt:t.resolvedAlt}}),e("div",{staticClass:"full-screen-banner__overlay",attrs:{"aria-hidden":"true"}}),e("div",{staticClass:"full-screen-banner__content layout-content"},[e("div",{staticClass:"full-screen-banner__copy"},[t.titleLines.length?e("h1",{staticClass:"full-screen-banner__title"},t._l(t.titleLines,(function(s,i){return e("span",{key:i},[t._v(t._s(s))])})),0):t._e()])])])},r=[],a=(s("0643"),s("2382"),s("a573"),{name:"FullScreenBanner",props:{banner:{type:String,default:""},subTitle:{type:String,default:""},title:{type:[String,Array],default:""}},computed:{titleLines(){if(Array.isArray(this.title))return this.title.map(t=>String(t||"").trim()).filter(Boolean);const t=String(this.title||"").trim();return t?[t]:[]},hasSubTitle(){return Boolean(String(this.subTitle||"").trim())},resolvedAlt(){return this.titleLines.join(" ")}}}),o=a,n=(s("135a"),s("2877")),c=Object(n["a"])(o,i,r,!1,null,"f422537c",null);e["a"]=c.exports},"135a":function(t,e,s){"use strict";s("6bea")},"24c3":function(t,e,s){"use strict";s("ff4a")},3569:function(t,e,s){},"3df7":function(t,e,s){"use strict";s("3569")},"4ada":function(t,e,s){},"4bcf":function(t,e,s){"use strict";s.r(e);var i=function(){var t=this,e=t._self._c;return e("div",{attrs:{id:"Products "}},[e("full-screen-banner",{attrs:{banner:t.bannerImg,title:t.currentCategoryTitle||t.$t("product.title")}}),e("div",[e("div",{staticClass:"Productfoter"},[t._m(0),t.canUseCarousel?e("div",{staticClass:"Productfoter-right"},[e("span",{staticClass:"Productfoter-label"},[t._v(t._s(t.pageCopy.viewLabel))]),e("div",{staticClass:"Productfoter-switch",attrs:{role:"tablist","aria-label":t.pageCopy.viewSwitcherAria}},[e("button",{staticClass:"Productfoter-switchBtn",class:{"is-active":!t.isShow},attrs:{type:"button","aria-pressed":!t.isShow},on:{click:function(e){return t.setViewMode("grid")}}},[e("svg",{attrs:{viewBox:"0 0 24 24","aria-hidden":"true"}},[e("rect",{attrs:{x:"4",y:"4",width:"6",height:"6",rx:"1.5"}}),e("rect",{attrs:{x:"14",y:"4",width:"6",height:"6",rx:"1.5"}}),e("rect",{attrs:{x:"4",y:"14",width:"6",height:"6",rx:"1.5"}}),e("rect",{attrs:{x:"14",y:"14",width:"6",height:"6",rx:"1.5"}})])]),e("button",{staticClass:"Productfoter-switchBtn",class:{"is-active":t.isShow},attrs:{type:"button","aria-pressed":t.isShow},on:{click:function(e){return t.setViewMode("carousel")}}},[e("svg",{attrs:{viewBox:"0 0 24 24","aria-hidden":"true"}},[e("rect",{attrs:{x:"3.5",y:"6",width:"4",height:"12",rx:"1.5"}}),e("rect",{attrs:{x:"9.5",y:"6",width:"5",height:"12",rx:"1.5"}}),e("rect",{attrs:{x:"16.5",y:"6",width:"4",height:"12",rx:"1.5"}})])])])]):t._e()]),e("div",{staticClass:"Products-stage"},[t.showEmptyState?e("section",{staticClass:"Products-empty"},[e("div",{staticClass:"Products-empty-visual",attrs:{"aria-hidden":"true"}},[e("div",{staticClass:"Products-empty-visualSide"}),e("div",{staticClass:"Products-empty-visualMain"},[e("svg",{attrs:{viewBox:"0 0 96 96"}},[e("path",{attrs:{d:"M30 30L66 66"}}),e("path",{attrs:{d:"M44 24L72 52"}}),e("path",{attrs:{d:"M24 44L52 72"}}),e("path",{attrs:{d:"M54 24L72 42"}}),e("path",{attrs:{d:"M24 54L42 72"}})])]),e("div",{staticClass:"Products-empty-visualSide"}),e("div",{staticClass:"Products-empty-visualFade"})]),e("div",{staticClass:"Products-empty-copy"},[e("h3",[t._v(t._s(t.emptyStateCopy.title))]),e("p",[t._v(t._s(t.emptyStateCopy.description))]),e("button",{staticClass:"Products-emptyAction",attrs:{type:"button"},on:{click:t.goToAllSeries}},[t._v(" "+t._s(t.emptyStateCopy.action)+" ")])])]):t.canUseCarousel&&t.isShow?e("Slideshow",{attrs:{Sildeshow:t.productsList,loading:t.isLoading}}):e("Tailorism",{attrs:{Tailorism:t.productsList,loading:t.isLoading}})],1)])],1)},r=[function(){var t=this,e=t._self._c;return e("div",{staticClass:"Productfoter-copy"},[e("div",{staticClass:"Productfoter-heading"})])}],a=(s("0643"),s("2382"),s("fffc"),s("4e3e"),s("10d9")),o=s("76c0"),n=s("aae6"),c={name:"Products",components:{FullScreenBanner:a["a"],Tailorism:o["default"],Slideshow:n["default"]},data(){return{bannerImg:s("aec4"),currentLang:"zh",active:"",productsList:[],categoryLayoutList:[],emptyRecommendations:[],total:0,pageSize:6,currentPage:1,currentItem:null,isLoading:!1,isShow:!1,viewportWidth:"undefined"!==typeof window?window.innerWidth:1440}},computed:{currentLocaleCode(){const t=this.$i18n&&this.$i18n.locale?String(this.$i18n.locale):this.currentLang,e=t.toUpperCase();return"ZH"===e?"CN":e},pageCopy(){const t=t=>{const e=this.$i18n&&this.$i18n.getLocaleMessage?this.$i18n.getLocaleMessage(t):null;return e&&e.products&&e.products.page?e.products.page:null},e=t(this.currentLocaleCode)||t("EN")||{};return{viewLabel:e.viewLabel||"VIEW:",viewSwitcherAria:e.viewSwitcherAria||"View switcher",errors:e.errors||{}}},categoryPool(){const t=this.categoryLayoutList.length?this.categoryLayoutList:this.$store.state.currentItem||[],e=[];return t.forEach(t=>{Array.isArray(t&&t.categories)&&e.push(...t.categories)}),e},currentCategoryItem(){if(this.$route.params&&this.$route.params.item2)return this.$route.params.item2;const t=this.$route.query&&this.$route.query.categoryId?String(this.$route.query.categoryId):"";return t&&this.categoryPool.find(e=>String(e.id)===t)||null},currentCategoryTitle(){return this.getLocalizedCategoryTitle(this.currentCategoryItem)||this.$t("product.title")},showEmptyState(){return!this.isLoading&&!this.productsList.length},canUseCarousel(){return this.viewportWidth>1200},emptyStateCopy(){const t=t=>{const e=this.$i18n&&this.$i18n.getLocaleMessage?this.$i18n.getLocaleMessage(t):null;return e&&e.products&&e.products.page?e.products.page:null},e=t(this.currentLocaleCode)||t("EN")||{};return e.emptyState||{}}},watch:{"$route.params.item2":{deep:!0,handler(){this.fetchFirstData()}},"$route.query.categoryId":{handler(){this.fetchFirstData()}}},mounted(){this.$root.$on("languageChanged",this.handleLanguageChange),window.addEventListener("resize",this.syncViewportState),this.syncViewportState()},beforeDestroy(){this.$root.$off("languageChanged",this.handleLanguageChange),window.removeEventListener("resize",this.syncViewportState)},methods:{goBack(){"undefined"!==typeof window&&window.history.length>1?this.$router.back():this.$router.push({name:"Product"}).catch(()=>{})},goToAllSeries(){this.$router.push({name:"Product"}).catch(()=>{})},setViewMode(t){"carousel"!==t||this.canUseCarousel?this.isShow="carousel"===t:this.isShow=!1},handleLanguageChange(){const t=((localStorage.getItem("language")||"zh")+"").toLowerCase();this.currentLang="cn"===t?"zh":t},syncViewportState(){this.viewportWidth=window.innerWidth,!this.canUseCarousel&&this.isShow&&(this.isShow=!1)},getLocalizedCategoryTitle(t){return t&&(t[this.currentLang]||t.title||t.name)||""},getCategoryImageSrc(t){const e=t&&t.image?String(t.image):"";return e?/^https?:\/\//i.test(e)?e:"http://admin.doporro.com//storage/"+e:this.bannerImg},getListByFirstLayoutCategory(t,e){this.isLoading=!0,this.productsList=[],this.$api.products.getProductsByCategoryRoot(t.id,e).then(t=>{200==t.state_code?(this.productsList=t.data,this.total=t.total,this.refreshEmptyRecommendations(),this.isLoading=!1):(this.$notify.error({title:this.pageCopy.errors.title||"Request error",message:this.pageCopy.errors.productsFailed||"Product data request failed!"}),this.refreshEmptyRecommendations(),this.isLoading=!1)})},buildRecommendationPool(){const t=[],e=new Set;return this.categoryLayoutList.forEach(s=>{Array.isArray(s&&s.categories)&&s.categories.forEach(s=>{const i=s&&s.id?s.id:null;!s||!s.image||i&&e.has(i)||(t.push(s),i&&e.add(i))})}),t},refreshEmptyRecommendations(){const t=this.buildRecommendationPool().filter(t=>!this.currentCategoryItem||t.id!==this.currentCategoryItem.id),e=[...t];for(let s=e.length-1;s>0;s-=1){const t=Math.floor(Math.random()*(s+1)),i=e[s];e[s]=e[t],e[t]=i}this.emptyRecommendations=e.slice(0,4)},openRecommendation(t){this.$router.push({name:"Products",query:{categoryId:t.id},params:{item2:t}}).catch(()=>{})},fetchFirstData(){this.isLoading=!0,this.productsList=[],this.emptyRecommendations=[],this.$api.category.getCategoryByLayout().then(t=>{const e=Array.isArray(t.data)?t.data:[];if(this.categoryLayoutList=e,this.currentItem=e[0]||null,this.refreshEmptyRecommendations(),!this.currentCategoryItem||!this.currentCategoryItem.id)return void(this.isLoading=!1);const s={page:this.currentPage,size:this.pageSize};this.$api.products.getProductsByCategoryRoot(this.currentCategoryItem.id,s).then(t=>{200==t.state_code?(this.productsList=Array.isArray(t.data)?t.data:[],this.total=t.total,this.refreshEmptyRecommendations(),this.isLoading=!1):(this.$notify.error({title:this.pageCopy.errors.title||"Request error",message:this.pageCopy.errors.productsFailed||"Product data request failed!"}),this.refreshEmptyRecommendations(),this.isLoading=!1)}).catch(()=>{this.$notify.error({title:this.pageCopy.errors.title||"Request error",message:this.pageCopy.errors.productsFailed||"Product data request failed!"}),this.refreshEmptyRecommendations(),this.isLoading=!1})}).catch(()=>{this.$notify.error({title:this.pageCopy.errors.title||"Request error",message:this.pageCopy.errors.categoryFailed||"Product category request failed!"}),this.categoryLayoutList=[],this.emptyRecommendations=[],this.isLoading=!1})}},created(){const t=((localStorage.getItem("language")||"zh")+"").toLowerCase();this.currentLang="cn"===t?"zh":t,this.fetchFirstData()}},d=c,l=(s("fda1"),s("2877")),u=Object(l["a"])(d,i,r,!1,null,null,null);e["default"]=u.exports},"6bea":function(t,e,s){},"76c0":function(t,e,s){"use strict";s.r(e);var i=function(){var t=this,e=t._self._c;return e("div",{attrs:{id:"Tailorism"}},[e("div",{directives:[{name:"loading",rawName:"v-loading",value:t.loading,expression:"loading"}],staticClass:"product-main"},[e("div",{staticClass:"product-list-s"},[t.productsList.length?e("div",{staticClass:"product-wrap-s"},t._l(t.productsList,(function(s,i){return e("div",{key:i,staticClass:"product-item-s",attrs:{"data-title":s.title,"data-desc":s.short_desc}},[e("el-image",{staticStyle:{display:"flex"},attrs:{src:"http://admin.doporro.com//storage/"+s.thumb_image1}},[e("div",{staticClass:"image-slot-s",attrs:{slot:"error"},slot:"error"},[e("i",{staticClass:"el-icon-picture-outline"})])]),e("div",{staticClass:"pruduct-wenan"},[e("p",[t._v(t._s(s.title))]),e("p",[t._v(t._s(s.short_desc))])])],1)})),0):t.loading?t._e():e("div",{staticClass:"product-wrap-s"},[e("p",{staticClass:"nothing"},[t._v(t._s(t.$t("product.noting")))])])])])])},r=[],a={name:"Tailorism",props:{Tailorism:{type:Array,default:()=>[]},loading:{type:Boolean,default:!1}},computed:{productsList(){return Array.isArray(this.Tailorism)?this.Tailorism:[]}}},o=a,n=(s("24c3"),s("2877")),c=Object(n["a"])(o,i,r,!1,null,null,null);e["default"]=c.exports},"7ddc":function(t,e,s){},aae6:function(t,e,s){"use strict";s.r(e);var i=function(){var t=this,e=t._self._c;return e("div",{directives:[{name:"loading",rawName:"v-loading",value:t.loading,expression:"loading"}],staticClass:"Slideshow"},[t.productsList.length?e("swiper",{staticClass:"swiper",attrs:{options:t.swiperOption}},[t._l(t.productsList,(function(s,i){return e("swiper-slide",{key:i,staticClass:"swiper-one"},[e("img",{attrs:{src:"http://admin.doporro.com//storage/"+s.thumb_image1,alt:""}}),e("div",{staticClass:"slide-content"},[e("p",{staticClass:"slide-p1"},[t._v(t._s(s.title))]),e("p",{staticClass:"slide-p2"},[t._v(t._s(s.short_desc))])])])})),e("div",{staticClass:"swiper-pagination",attrs:{slot:"pagination"},slot:"pagination"}),e("div",{staticClass:"swiper-button-prev swiper-button-black",attrs:{slot:"button-prev"},slot:"button-prev"}),e("div",{staticClass:"swiper-button-next swiper-button-black",attrs:{slot:"button-next"},slot:"button-next"})],2):t._e()],1)},r=[],a={name:"Slideshow",props:{Sildeshow:{type:Array,default:()=>[]},loading:{type:Boolean,default:!1}},data(){return{swiperOption:{slidesPerView:window.innerWidth>=768?5:2,centeredSlides:window.innerWidth>=768,spaceBetween:30,pagination:{el:".swiper-pagination",type:"progressbar"},navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"}}}},computed:{productsList(){return Array.isArray(this.Sildeshow)?this.Sildeshow:[]}}},o=a,n=(s("3df7"),s("e900"),s("2877")),c=Object(n["a"])(o,i,r,!1,null,"9d7ee7c8",null);e["default"]=c.exports},aec4:function(t,e,s){t.exports=s.p+"assets/img/03产品分类_03.a2bba157.jpg"},e900:function(t,e,s){"use strict";s("7ddc")},fda1:function(t,e,s){"use strict";s("4ada")},ff4a:function(t,e,s){}}]);
+;(window['webpackJsonp'] = window['webpackJsonp'] || []).push([
+  ['chunk-f2bef568', 'chunk-8087eca4', 'chunk-650d1510'],
+  {
+    '10d9': function (t, e, s) {
+      'use strict'
+      var i = function () {
+          var t = this,
+            e = t._self._c
+          return e('section', { staticClass: 'full-screen-banner' }, [
+            e('img', { staticClass: 'full-screen-banner__bg', attrs: { src: t.banner, alt: t.resolvedAlt } }),
+            e('div', { staticClass: 'full-screen-banner__overlay', attrs: { 'aria-hidden': 'true' } }),
+            e('div', { staticClass: 'full-screen-banner__content layout-content' }, [
+              e('div', { staticClass: 'full-screen-banner__copy' }, [
+                t.titleLines.length
+                  ? e(
+                      'h1',
+                      { staticClass: 'full-screen-banner__title' },
+                      t._l(t.titleLines, function (s, i) {
+                        return e('span', { key: i }, [t._v(t._s(s))])
+                      }),
+                      0
+                    )
+                  : t._e()
+              ])
+            ])
+          ])
+        },
+        r = [],
+        a =
+          (s('0643'),
+          s('2382'),
+          s('a573'),
+          {
+            name: 'FullScreenBanner',
+            props: {
+              banner: { type: String, default: '' },
+              subTitle: { type: String, default: '' },
+              title: { type: [String, Array], default: '' }
+            },
+            computed: {
+              titleLines() {
+                if (Array.isArray(this.title))
+                  return this.title.map(t => String(t || '').trim()).filter(Boolean)
+                const t = String(this.title || '').trim()
+                return t ? [t] : []
+              },
+              hasSubTitle() {
+                return Boolean(String(this.subTitle || '').trim())
+              },
+              resolvedAlt() {
+                return this.titleLines.join(' ')
+              }
+            }
+          }),
+        o = a,
+        n = (s('135a'), s('2877')),
+        c = Object(n['a'])(o, i, r, !1, null, 'f422537c', null)
+      e['a'] = c.exports
+    },
+    '135a': function (t, e, s) {
+      'use strict'
+      s('6bea')
+    },
+    '24c3': function (t, e, s) {
+      'use strict'
+      s('ff4a')
+    },
+    3569: function (t, e, s) {},
+    '3df7': function (t, e, s) {
+      'use strict'
+      s('3569')
+    },
+    '4ada': function (t, e, s) {},
+    '4bcf': function (t, e, s) {
+      'use strict'
+      s.r(e)
+      var i = function () {
+          var t = this,
+            e = t._self._c
+          return e(
+            'div',
+            { attrs: { id: 'Products ' } },
+            [
+              e('full-screen-banner', {
+                attrs: { banner: t.bannerImg, title: t.currentCategoryTitle || t.$t('product.title') }
+              }),
+              e('div', [
+                e('div', { staticClass: 'Productfoter' }, [
+                  t._m(0),
+                  t.canUseCarousel
+                    ? e('div', { staticClass: 'Productfoter-right' }, [
+                        e('span', { staticClass: 'Productfoter-label' }, [t._v(t._s(t.pageCopy.viewLabel))]),
+                        e(
+                          'div',
+                          {
+                            staticClass: 'Productfoter-switch',
+                            attrs: { role: 'tablist', 'aria-label': t.pageCopy.viewSwitcherAria }
+                          },
+                          [
+                            e(
+                              'button',
+                              {
+                                staticClass: 'Productfoter-switchBtn',
+                                class: { 'is-active': !t.isShow },
+                                attrs: { type: 'button', 'aria-pressed': !t.isShow },
+                                on: {
+                                  click: function (e) {
+                                    return t.setViewMode('grid')
+                                  }
+                                }
+                              },
+                              [
+                                e('svg', { attrs: { viewBox: '0 0 24 24', 'aria-hidden': 'true' } }, [
+                                  e('rect', {
+                                    attrs: { x: '4', y: '4', width: '6', height: '6', rx: '1.5' }
+                                  }),
+                                  e('rect', {
+                                    attrs: { x: '14', y: '4', width: '6', height: '6', rx: '1.5' }
+                                  }),
+                                  e('rect', {
+                                    attrs: { x: '4', y: '14', width: '6', height: '6', rx: '1.5' }
+                                  }),
+                                  e('rect', {
+                                    attrs: { x: '14', y: '14', width: '6', height: '6', rx: '1.5' }
+                                  })
+                                ])
+                              ]
+                            ),
+                            e(
+                              'button',
+                              {
+                                staticClass: 'Productfoter-switchBtn',
+                                class: { 'is-active': t.isShow },
+                                attrs: { type: 'button', 'aria-pressed': t.isShow },
+                                on: {
+                                  click: function (e) {
+                                    return t.setViewMode('carousel')
+                                  }
+                                }
+                              },
+                              [
+                                e('svg', { attrs: { viewBox: '0 0 24 24', 'aria-hidden': 'true' } }, [
+                                  e('rect', {
+                                    attrs: { x: '3.5', y: '6', width: '4', height: '12', rx: '1.5' }
+                                  }),
+                                  e('rect', {
+                                    attrs: { x: '9.5', y: '6', width: '5', height: '12', rx: '1.5' }
+                                  }),
+                                  e('rect', {
+                                    attrs: { x: '16.5', y: '6', width: '4', height: '12', rx: '1.5' }
+                                  })
+                                ])
+                              ]
+                            )
+                          ]
+                        )
+                      ])
+                    : t._e()
+                ]),
+                e(
+                  'div',
+                  { staticClass: 'Products-stage' },
+                  [
+                    t.showEmptyState
+                      ? e('section', { staticClass: 'Products-empty' }, [
+                          e(
+                            'div',
+                            { staticClass: 'Products-empty-visual', attrs: { 'aria-hidden': 'true' } },
+                            [
+                              e('div', { staticClass: 'Products-empty-visualSide' }),
+                              e('div', { staticClass: 'Products-empty-visualMain' }, [
+                                e('svg', { attrs: { viewBox: '0 0 96 96' } }, [
+                                  e('path', { attrs: { d: 'M30 30L66 66' } }),
+                                  e('path', { attrs: { d: 'M44 24L72 52' } }),
+                                  e('path', { attrs: { d: 'M24 44L52 72' } }),
+                                  e('path', { attrs: { d: 'M54 24L72 42' } }),
+                                  e('path', { attrs: { d: 'M24 54L42 72' } })
+                                ])
+                              ]),
+                              e('div', { staticClass: 'Products-empty-visualSide' }),
+                              e('div', { staticClass: 'Products-empty-visualFade' })
+                            ]
+                          ),
+                          e('div', { staticClass: 'Products-empty-copy' }, [
+                            e('h3', [t._v(t._s(t.emptyStateCopy.title))]),
+                            e('p', [t._v(t._s(t.emptyStateCopy.description))]),
+                            e(
+                              'button',
+                              {
+                                staticClass: 'Products-emptyAction',
+                                attrs: { type: 'button' },
+                                on: { click: t.goToAllSeries }
+                              },
+                              [t._v(' ' + t._s(t.emptyStateCopy.action) + ' ')]
+                            )
+                          ])
+                        ])
+                      : t.canUseCarousel && t.isShow
+                        ? e('Slideshow', { attrs: { Sildeshow: t.productsList, loading: t.isLoading } })
+                        : e('Tailorism', { attrs: { Tailorism: t.productsList, loading: t.isLoading } })
+                  ],
+                  1
+                )
+              ])
+            ],
+            1
+          )
+        },
+        r = [
+          function () {
+            var t = this,
+              e = t._self._c
+            return e('div', { staticClass: 'Productfoter-copy' }, [
+              e('div', { staticClass: 'Productfoter-heading' })
+            ])
+          }
+        ],
+        a = (s('0643'), s('2382'), s('fffc'), s('4e3e'), s('10d9')),
+        o = s('76c0'),
+        n = s('aae6'),
+        c = {
+          name: 'Products',
+          components: { FullScreenBanner: a['a'], Tailorism: o['default'], Slideshow: n['default'] },
+          data() {
+            return {
+              bannerImg: s('aec4'),
+              currentLang: 'zh',
+              active: '',
+              productsList: [],
+              categoryLayoutList: [],
+              emptyRecommendations: [],
+              total: 0,
+              pageSize: 999,
+              currentPage: 1,
+              currentItem: null,
+              isLoading: !1,
+              isShow: !1,
+              viewportWidth: 'undefined' !== typeof window ? window.innerWidth : 1440
+            }
+          },
+          computed: {
+            currentLocaleCode() {
+              const t = this.$i18n && this.$i18n.locale ? String(this.$i18n.locale) : this.currentLang,
+                e = t.toUpperCase()
+              return 'ZH' === e ? 'CN' : e
+            },
+            pageCopy() {
+              const t = t => {
+                  const e = this.$i18n && this.$i18n.getLocaleMessage ? this.$i18n.getLocaleMessage(t) : null
+                  return e && e.products && e.products.page ? e.products.page : null
+                },
+                e = t(this.currentLocaleCode) || t('EN') || {}
+              return {
+                viewLabel: e.viewLabel || 'VIEW:',
+                viewSwitcherAria: e.viewSwitcherAria || 'View switcher',
+                errors: e.errors || {}
+              }
+            },
+            categoryPool() {
+              const t = this.categoryLayoutList.length
+                  ? this.categoryLayoutList
+                  : this.$store.state.currentItem || [],
+                e = []
+              return (
+                t.forEach(t => {
+                  Array.isArray(t && t.categories) && e.push(...t.categories)
+                }),
+                e
+              )
+            },
+            currentCategoryItem() {
+              if (this.$route.params && this.$route.params.item2) return this.$route.params.item2
+              const t =
+                this.$route.query && this.$route.query.categoryId ? String(this.$route.query.categoryId) : ''
+              return (t && this.categoryPool.find(e => String(e.id) === t)) || null
+            },
+            currentCategoryTitle() {
+              return this.getLocalizedCategoryTitle(this.currentCategoryItem) || this.$t('product.title')
+            },
+            showEmptyState() {
+              return !this.isLoading && !this.productsList.length
+            },
+            canUseCarousel() {
+              return this.viewportWidth > 1200
+            },
+            emptyStateCopy() {
+              const t = t => {
+                  const e = this.$i18n && this.$i18n.getLocaleMessage ? this.$i18n.getLocaleMessage(t) : null
+                  return e && e.products && e.products.page ? e.products.page : null
+                },
+                e = t(this.currentLocaleCode) || t('EN') || {}
+              return e.emptyState || {}
+            }
+          },
+          watch: {
+            '$route.params.item2': {
+              deep: !0,
+              handler() {
+                this.fetchFirstData()
+              }
+            },
+            '$route.query.categoryId': {
+              handler() {
+                this.fetchFirstData()
+              }
+            }
+          },
+          mounted() {
+            ;(this.$root.$on('languageChanged', this.handleLanguageChange),
+              window.addEventListener('resize', this.syncViewportState),
+              this.syncViewportState())
+          },
+          beforeDestroy() {
+            ;(this.$root.$off('languageChanged', this.handleLanguageChange),
+              window.removeEventListener('resize', this.syncViewportState))
+          },
+          methods: {
+            goBack() {
+              'undefined' !== typeof window && window.history.length > 1
+                ? this.$router.back()
+                : this.$router.push({ name: 'Product' }).catch(() => {})
+            },
+            goToAllSeries() {
+              this.$router.push({ name: 'Product' }).catch(() => {})
+            },
+            setViewMode(t) {
+              'carousel' !== t || this.canUseCarousel ? (this.isShow = 'carousel' === t) : (this.isShow = !1)
+            },
+            handleLanguageChange() {
+              const t = ((localStorage.getItem('language') || 'zh') + '').toLowerCase()
+              this.currentLang = 'cn' === t ? 'zh' : t
+            },
+            syncViewportState() {
+              ;((this.viewportWidth = window.innerWidth),
+                !this.canUseCarousel && this.isShow && (this.isShow = !1))
+            },
+            getLocalizedCategoryTitle(t) {
+              return (t && (t[this.currentLang] || t.title || t.name)) || ''
+            },
+            getCategoryImageSrc(t) {
+              const e = t && t.image ? String(t.image) : ''
+              return e
+                ? /^https?:\/\//i.test(e)
+                  ? e
+                  : 'http://admin.doporro.com//storage/' + e
+                : this.bannerImg
+            },
+            getListByFirstLayoutCategory(t, e) {
+              ;((this.isLoading = !0),
+                (this.productsList = []),
+                this.$api.products.getProductsByCategoryRoot(t.id, e).then(t => {
+                  200 == t.state_code
+                    ? ((this.productsList = t.data),
+                      (this.total = t.total),
+                      this.refreshEmptyRecommendations(),
+                      (this.isLoading = !1))
+                    : (this.$notify.error({
+                        title: this.pageCopy.errors.title || 'Request error',
+                        message: this.pageCopy.errors.productsFailed || 'Product data request failed!'
+                      }),
+                      this.refreshEmptyRecommendations(),
+                      (this.isLoading = !1))
+                }))
+            },
+            buildRecommendationPool() {
+              const t = [],
+                e = new Set()
+              return (
+                this.categoryLayoutList.forEach(s => {
+                  Array.isArray(s && s.categories) &&
+                    s.categories.forEach(s => {
+                      const i = s && s.id ? s.id : null
+                      !s || !s.image || (i && e.has(i)) || (t.push(s), i && e.add(i))
+                    })
+                }),
+                t
+              )
+            },
+            refreshEmptyRecommendations() {
+              const t = this.buildRecommendationPool().filter(
+                  t => !this.currentCategoryItem || t.id !== this.currentCategoryItem.id
+                ),
+                e = [...t]
+              for (let s = e.length - 1; s > 0; s -= 1) {
+                const t = Math.floor(Math.random() * (s + 1)),
+                  i = e[s]
+                ;((e[s] = e[t]), (e[t] = i))
+              }
+              this.emptyRecommendations = e.slice(0, 4)
+            },
+            openRecommendation(t) {
+              this.$router
+                .push({ name: 'Products', query: { categoryId: t.id }, params: { item2: t } })
+                .catch(() => {})
+            },
+            fetchFirstData() {
+              ;((this.isLoading = !0),
+                (this.productsList = []),
+                (this.emptyRecommendations = []),
+                this.$api.category
+                  .getCategoryByLayout()
+                  .then(t => {
+                    const e = Array.isArray(t.data) ? t.data : []
+                    if (
+                      ((this.categoryLayoutList = e),
+                      (this.currentItem = e[0] || null),
+                      this.refreshEmptyRecommendations(),
+                      !this.currentCategoryItem || !this.currentCategoryItem.id)
+                    )
+                      return void (this.isLoading = !1)
+                    const s = { page: this.currentPage, size: this.pageSize }
+                    this.$api.products
+                      .getProductsByCategoryRoot(this.currentCategoryItem.id, s)
+                      .then(t => {
+                        200 == t.state_code
+                          ? ((this.productsList = Array.isArray(t.data) ? t.data : []),
+                            (this.total = t.total),
+                            this.refreshEmptyRecommendations(),
+                            (this.isLoading = !1))
+                          : (this.$notify.error({
+                              title: this.pageCopy.errors.title || 'Request error',
+                              message: this.pageCopy.errors.productsFailed || 'Product data request failed!'
+                            }),
+                            this.refreshEmptyRecommendations(),
+                            (this.isLoading = !1))
+                      })
+                      .catch(() => {
+                        ;(this.$notify.error({
+                          title: this.pageCopy.errors.title || 'Request error',
+                          message: this.pageCopy.errors.productsFailed || 'Product data request failed!'
+                        }),
+                          this.refreshEmptyRecommendations(),
+                          (this.isLoading = !1))
+                      })
+                  })
+                  .catch(() => {
+                    ;(this.$notify.error({
+                      title: this.pageCopy.errors.title || 'Request error',
+                      message: this.pageCopy.errors.categoryFailed || 'Product category request failed!'
+                    }),
+                      (this.categoryLayoutList = []),
+                      (this.emptyRecommendations = []),
+                      (this.isLoading = !1))
+                  }))
+            }
+          },
+          created() {
+            const t = ((localStorage.getItem('language') || 'zh') + '').toLowerCase()
+            ;((this.currentLang = 'cn' === t ? 'zh' : t), this.fetchFirstData())
+          }
+        },
+        d = c,
+        l = (s('fda1'), s('2877')),
+        u = Object(l['a'])(d, i, r, !1, null, null, null)
+      e['default'] = u.exports
+    },
+    '6bea': function (t, e, s) {},
+    '76c0': function (t, e, s) {
+      'use strict'
+      s.r(e)
+      var i = function () {
+          var t = this,
+            e = t._self._c
+          return e('div', { attrs: { id: 'Tailorism' } }, [
+            e(
+              'div',
+              {
+                directives: [
+                  { name: 'loading', rawName: 'v-loading', value: t.loading, expression: 'loading' }
+                ],
+                staticClass: 'product-main'
+              },
+              [
+                e('div', { staticClass: 'product-list-s' }, [
+                  t.productsList.length
+                    ? e(
+                        'div',
+                        { staticClass: 'product-wrap-s' },
+                        t._l(t.productsList, function (s, i) {
+                          return e(
+                            'div',
+                            {
+                              key: i,
+                              staticClass: 'product-item-s',
+                              attrs: { 'data-title': s.title, 'data-desc': s.short_desc }
+                            },
+                            [
+                              e(
+                                'el-image',
+                                {
+                                  staticStyle: { display: 'flex' },
+                                  attrs: { src: 'http://admin.doporro.com//storage/' + s.thumb_image1 }
+                                },
+                                [
+                                  e(
+                                    'div',
+                                    { staticClass: 'image-slot-s', attrs: { slot: 'error' }, slot: 'error' },
+                                    [e('i', { staticClass: 'el-icon-picture-outline' })]
+                                  )
+                                ]
+                              ),
+                              e('div', { staticClass: 'pruduct-wenan' }, [
+                                e('p', [t._v(t._s(s.title))]),
+                                e('p', [t._v(t._s(s.short_desc))])
+                              ])
+                            ],
+                            1
+                          )
+                        }),
+                        0
+                      )
+                    : t.loading
+                      ? t._e()
+                      : e('div', { staticClass: 'product-wrap-s' }, [
+                          e('p', { staticClass: 'nothing' }, [t._v(t._s(t.$t('product.noting')))])
+                        ])
+                ])
+              ]
+            )
+          ])
+        },
+        r = [],
+        a = {
+          name: 'Tailorism',
+          props: { Tailorism: { type: Array, default: () => [] }, loading: { type: Boolean, default: !1 } },
+          computed: {
+            productsList() {
+              return Array.isArray(this.Tailorism) ? this.Tailorism : []
+            }
+          }
+        },
+        o = a,
+        n = (s('24c3'), s('2877')),
+        c = Object(n['a'])(o, i, r, !1, null, null, null)
+      e['default'] = c.exports
+    },
+    '7ddc': function (t, e, s) {},
+    aae6: function (t, e, s) {
+      'use strict'
+      s.r(e)
+      var i = function () {
+          var t = this,
+            e = t._self._c
+          return e(
+            'div',
+            {
+              directives: [
+                { name: 'loading', rawName: 'v-loading', value: t.loading, expression: 'loading' }
+              ],
+              staticClass: 'Slideshow'
+            },
+            [
+              t.productsList.length
+                ? e(
+                    'swiper',
+                    { staticClass: 'swiper', attrs: { options: t.swiperOption } },
+                    [
+                      t._l(t.productsList, function (s, i) {
+                        return e('swiper-slide', { key: i, staticClass: 'swiper-one' }, [
+                          e('img', {
+                            attrs: { src: 'http://admin.doporro.com//storage/' + s.thumb_image1, alt: '' }
+                          }),
+                          e('div', { staticClass: 'slide-content' }, [
+                            e('p', { staticClass: 'slide-p1' }, [t._v(t._s(s.title))]),
+                            e('p', { staticClass: 'slide-p2' }, [t._v(t._s(s.short_desc))])
+                          ])
+                        ])
+                      }),
+                      e('div', {
+                        staticClass: 'swiper-pagination',
+                        attrs: { slot: 'pagination' },
+                        slot: 'pagination'
+                      }),
+                      e('div', {
+                        staticClass: 'swiper-button-prev swiper-button-black',
+                        attrs: { slot: 'button-prev' },
+                        slot: 'button-prev'
+                      }),
+                      e('div', {
+                        staticClass: 'swiper-button-next swiper-button-black',
+                        attrs: { slot: 'button-next' },
+                        slot: 'button-next'
+                      })
+                    ],
+                    2
+                  )
+                : t._e()
+            ],
+            1
+          )
+        },
+        r = [],
+        a = {
+          name: 'Slideshow',
+          props: { Sildeshow: { type: Array, default: () => [] }, loading: { type: Boolean, default: !1 } },
+          data() {
+            return {
+              swiperOption: {
+                slidesPerView: window.innerWidth >= 768 ? 5 : 2,
+                centeredSlides: window.innerWidth >= 768,
+                spaceBetween: 30,
+                pagination: { el: '.swiper-pagination', type: 'progressbar' },
+                navigation: { nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }
+              }
+            }
+          },
+          computed: {
+            productsList() {
+              return Array.isArray(this.Sildeshow) ? this.Sildeshow : []
+            }
+          }
+        },
+        o = a,
+        n = (s('3df7'), s('e900'), s('2877')),
+        c = Object(n['a'])(o, i, r, !1, null, '9d7ee7c8', null)
+      e['default'] = c.exports
+    },
+    aec4: function (t, e, s) {
+      t.exports = s.p + 'assets/img/03产品分类_03.a2bba157.jpg'
+    },
+    e900: function (t, e, s) {
+      'use strict'
+      s('7ddc')
+    },
+    fda1: function (t, e, s) {
+      'use strict'
+      s('4ada')
+    },
+    ff4a: function (t, e, s) {}
+  }
+])
