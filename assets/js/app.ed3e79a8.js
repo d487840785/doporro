@@ -6951,7 +6951,7 @@
             featuredVideo: {
               poster: t('c005'),
               video:
-                'https://doporro-hangzhou.oss-cn-hangzhou.aliyuncs.com/Doporro-Website/video/%E9%A6%96%E9%A1%B5%E8%A7%86%E9%A2%912.mp4'
+                'https://doporro-hangzhou.oss-cn-hangzhou.aliyuncs.com/Doporro-Website/video/%E9%A6%96%E9%A1%B5%E8%A7%86%E9%A2%913.mp4'
             }
           }
         },
